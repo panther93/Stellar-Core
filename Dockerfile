@@ -26,7 +26,7 @@ WORKDIR /opt/stellar/core
 ADD start.sh .
 RUN ["chmod", "+x", "start.sh"]
 #CMD "/opt/stellar/core/start.sh"
-ENTRYPOINT start.sh
+ENTRYPOINT ./start.sh
 # ENTRYPOINT ["/usr/local/bin/stellar-core"]
 
 
