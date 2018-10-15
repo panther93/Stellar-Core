@@ -2,7 +2,7 @@ FROM stellar/base:latest
 
 #MAINTAINER <panther93@protonmail.com>
 
-ENV STELLAR_CORE_VERSION 9.2.0-551-7561c1d5
+ENV STELLAR_CORE_VERSION 10.0.0-685-1fc018b4
 
 #stellar-core command port
 EXPOSE 11626 
@@ -21,14 +21,12 @@ RUN apt-get update && apt-get install -y curl git libpq-dev libsqlite3-dev libsa
 
 VOLUME [ "/opt/stellar/core" ]
 
-WORKDIR /opt/stellar/core 
+WORKDIR /opt/stellar/
+# COPY . .
 
-ADD start.sh .
 RUN ["chmod", "+x", "start.sh"]
-#CMD "/opt/stellar/core/start.sh"
+
+
 ENTRYPOINT ./start.sh
-# ENTRYPOINT ["/usr/local/bin/stellar-core"]
-
-
 
 
